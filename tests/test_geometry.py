@@ -92,4 +92,4 @@ def test_right_angle_triangle(
 ):
     """Test if the triangle is a right angle triangle."""
     triangle = Triangle(side_a, side_b, side_c)
-    assert triangle.is_right() == is_right_angle
+    assert triangle.is_right_triangle() == is_right_angle

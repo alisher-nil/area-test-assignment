@@ -85,7 +85,7 @@ class Triangle(Shape):
             )
         )
 
-    def is_right(self) -> bool:
+    def is_right_triangle(self) -> bool:
         """
         Check if the triangle is a right triangle.
 
