@@ -4,8 +4,16 @@ from typing import Union
 Number = Union[int, float]
 
 
-def circle_area(radius: Union[int, float]) -> float:
-    """Calculate the area of a circle given its radius."""
+def circle_area(radius: Number) -> float:
+    """Calculate the area of a circle given its radius.
+
+    Args:
+        radius (int | float): The radius of the circle.
+    Returns:
+        float: The area of the circle.
+    Raises:
+        ValueError: If the radius is negative.
+    """
     if radius < 0:
         raise ValueError("Radius cannot be negative")
     return pi * radius**2
