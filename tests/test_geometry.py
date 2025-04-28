@@ -3,7 +3,7 @@ from typing import Union
 
 import pytest
 
-from area_test_assignment import circle_area, triangle_area
+from area_test_assignment import Circle, Triangle
 
 Number = Union[int, float]
 
@@ -20,13 +20,13 @@ Number = Union[int, float]
 )
 def test_circle_area(value: Union[int, float], expected: float):
     """Test the circle_area function."""
-    assert circle_area(value) == expected
+    assert Circle(value).area() == expected
 
 
 def test_circle_area_negative():
     """Test the circle_area function with a negative radius."""
     with pytest.raises(ValueError):
-        circle_area(-1)
+        Circle(-1)
 
 
 @pytest.mark.parametrize(
@@ -44,7 +44,7 @@ def test_triangle_area(
     expected: float,
 ):
     """Test the triangle_area function."""
-    assert triangle_area(side_a, side_b, side_c) == expected
+    assert Triangle(side_a, side_b, side_c).area() == expected
 
 
 @pytest.mark.parametrize(
@@ -64,4 +64,4 @@ def test_triangle_area_invalid_sides(
 ):
     """Test the triangle_area function with invalid sides."""
     with pytest.raises(ValueError):
-        triangle_area(side_a, side_b, side_c)
+        Triangle(side_a, side_b, side_c)
