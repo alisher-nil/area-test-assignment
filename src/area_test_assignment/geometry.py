@@ -31,6 +31,7 @@ def triangle_area(side_a: Number, side_b: Number, side_c: Number) -> float:
         float: The area of the triangle.
     Raises:
         ValueError: If any of the sides are non-positive.
+        ValueError: If the sides do not satisfy the triangle inequality.
     """
     if side_a <= 0 or side_b <= 0 or side_c <= 0:
         raise ValueError("Sides must be positive")
