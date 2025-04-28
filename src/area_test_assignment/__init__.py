@@ -1,3 +1,3 @@
-from .geometry import circle_area, triangle_area
+from .geometry import Circle, Shape, Triangle
 
-__all__ = ["circle_area", "triangle_area"]
+__all__ = ["Shape", "Circle", "Triangle"]
