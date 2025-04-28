@@ -84,3 +84,19 @@ class Triangle(Shape):
                 * (semiperimeter - self.side_c)
             )
         )
+
+    def is_right(self) -> bool:
+        """
+        Check if the triangle is a right triangle.
+
+        Returns:
+            bool: True if the triangle is a right triangle, False otherwise.
+        """
+        cathetes_a, cathetes_b, hypotenuse = sorted(
+            [
+                self.side_a,
+                self.side_b,
+                self.side_c,
+            ]
+        )
+        return hypotenuse**2 == cathetes_a**2 + cathetes_b**2
