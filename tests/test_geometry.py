@@ -1,9 +1,11 @@
-from math import pi
+from math import pi, sqrt
 from typing import Union
 
 import pytest
 
-from area_test_assignment import circle_area
+from area_test_assignment import circle_area, triangle_area
+
+Number = Union[int, float]
 
 
 @pytest.mark.parametrize(
@@ -25,3 +27,41 @@ def test_circle_area_negative():
     """Test the circle_area function with a negative radius."""
     with pytest.raises(ValueError):
         circle_area(-1)
+
+
+@pytest.mark.parametrize(
+    "side_a, side_b, side_c, expected",
+    [
+        (3, 4, 5, 6),  # testing integer sides
+        (3.0, 4.0, 5.0, 6.0),  # testing float sides
+        (1, 1, 1, sqrt(3) / 4),  # testing equilateral triangle
+    ],
+)
+def test_triangle_area(
+    side_a: Number,
+    side_b: Number,
+    side_c: Number,
+    expected: float,
+):
+    """Test the triangle_area function."""
+    assert triangle_area(side_a, side_b, side_c) == expected
+
+
+@pytest.mark.parametrize(
+    "side_a, side_b, side_c",
+    [
+        (-1, 2, 3),  # testing negative side a
+        (1, -2, 5),  # testing negative side b
+        (1, 4, -5),  # testing negative side c
+        (0, 0, 0),  # testing zero sides
+        (1, 1, 3),  # testing invalid triangle inequality
+    ],
+)
+def test_triangle_area_invalid_sides(
+    side_a: Number,
+    side_b: Number,
+    side_c: Number,
+):
+    """Test the triangle_area function with invalid sides."""
+    with pytest.raises(ValueError):
+        triangle_area(side_a, side_b, side_c)
