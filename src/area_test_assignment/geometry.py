@@ -23,6 +23,14 @@ def triangle_area(side_a: Number, side_b: Number, side_c: Number) -> float:
     """
     Calculate the area of a triangle given its three sides
     using Heron's formula.
+    Args:
+        side_a (int | float): The length of the first side.
+        side_b (int | float): The length of the second side.
+        side_c (int | float): The length of the third side.
+    Returns:
+        float: The area of the triangle.
+    Raises:
+        ValueError: If any of the sides are non-positive.
     """
     if side_a <= 0 or side_b <= 0 or side_c <= 0:
         raise ValueError("Sides must be positive")
