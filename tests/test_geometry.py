@@ -3,7 +3,7 @@ from typing import Union
 
 import pytest
 
-from area_test_assignment import Circle, Triangle
+from area_test_assignment import Circle, Shape, Triangle
 
 Number = Union[int, float]
 
@@ -65,3 +65,10 @@ def test_triangle_area_invalid_sides(
     """Test the triangle_area function with invalid sides."""
     with pytest.raises(ValueError):
         Triangle(side_a, side_b, side_c)
+
+
+def test_shape_behaviour_compatibility(shapes: list[Shape]):
+    """Test the area of a shape."""
+    for shape in shapes:
+        assert isinstance(shape, Shape)
+        assert shape.area() >= 0

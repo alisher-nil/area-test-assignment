@@ -1,15 +1,17 @@
+from abc import ABC, abstractmethod
 from math import pi, sqrt
-from typing import Protocol, Union
+from typing import Union
 
 Number = Union[int, float]
 
 
-class Shape(Protocol):
+class Shape(ABC):
     """Base class for shapes."""
 
+    @abstractmethod
     def area(self) -> float:
         """Calculate the area of the shape."""
-        ...
+        pass
 
 
 class Circle(Shape):
@@ -82,45 +84,3 @@ class Triangle(Shape):
                 * (semiperimeter - self.side_c)
             )
         )
-
-
-def circle_area(radius: Number) -> float:
-    """Calculate the area of a circle given its radius.
-
-    Args:
-        radius (int | float): The radius of the circle.
-    Returns:
-        float: The area of the circle.
-    Raises:
-        ValueError: If the radius is negative.
-    """
-    if radius < 0:
-        raise ValueError("Radius cannot be negative")
-    return pi * radius**2
-
-
-def triangle_area(side_a: Number, side_b: Number, side_c: Number) -> float:
-    """
-    Calculate the area of a triangle given its three sides
-    using Heron's formula.
-    Args:
-        side_a (int | float): The length of the first side.
-        side_b (int | float): The length of the second side.
-        side_c (int | float): The length of the third side.
-    Returns:
-        float: The area of the triangle.
-    Raises:
-        ValueError: If any of the sides are non-positive.
-        ValueError: If the sides do not satisfy the triangle inequality.
-    """
-    if side_a <= 0 or side_b <= 0 or side_c <= 0:
-        raise ValueError("Sides must be positive")
-    semiperimeter = (side_a + side_b + side_c) / 2
-    return sqrt(
-        (
-            semiperimeter
-            * (semiperimeter - side_a)
-            * (semiperimeter - side_b)
-            * (semiperimeter - side_c)
-        )
-    )
