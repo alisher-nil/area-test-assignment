@@ -7,7 +7,9 @@ authors = [
     { name = "Alisher Nildibayev", email = "alisher.nil@gmail.com" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "pytest>=8.3.5",
+]
 
 [build-system]
 requires = ["hatchling"]
