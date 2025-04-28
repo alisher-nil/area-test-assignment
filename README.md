@@ -61,15 +61,15 @@ pytest
 area-test-assignment/
 ├── src/
 │   └── area_test_assignment/
-│       ├── [__init__.py](http://_vscodecontentref_/0)
-│       ├── [geometry.py](http://_vscodecontentref_/1)
-│       └── [py.typed](http://_vscodecontentref_/2)
+│       ├── __init__.py
+│       ├── geometry.py
+│       └── py.typed
 ├── tests/
-│   ├── [__init__.py](http://_vscodecontentref_/3)
-│   └── [test_geometry.py](http://_vscodecontentref_/4)
-├── [README.md](http://_vscodecontentref_/5)
-├── [pyproject.toml](http://_vscodecontentref_/6)
-├── [ruff.toml](http://_vscodecontentref_/7)
+│   ├── __init__.py
+│   └── test_geometry.py
+├── README.md
+├── pyproject.toml
+├── ruff.toml
 └── .gitignore
 ```
 ## Requirements
