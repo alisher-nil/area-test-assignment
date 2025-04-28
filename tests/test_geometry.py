@@ -11,6 +11,8 @@ Number = Union[int, float]
 class TestCircle:
     """Test class for Circle."""
 
+    shape_class = Circle
+
     @pytest.mark.parametrize(
         "value, expected",
         [
@@ -23,15 +25,19 @@ class TestCircle:
     )
     def test_circle_area(self, value: Union[int, float], expected: float):
         """Test the circle_area function."""
-        assert Circle(value).area() == expected
+        assert self.shape_class(value).area() == expected
 
     def test_circle_area_negative(self):
         """Test the circle_area function with a negative radius."""
         with pytest.raises(ValueError):
-            Circle(-1)
+            self.shape_class(-1)
 
 
 class TestTriangle:
+    """Test class for Triangle."""
+
+    shape_class = Triangle
+
     @pytest.mark.parametrize(
         "side_a, side_b, side_c, expected",
         [
@@ -48,7 +54,7 @@ class TestTriangle:
         expected: float,
     ):
         """Test the triangle_area function."""
-        assert Triangle(side_a, side_b, side_c).area() == expected
+        assert self.shape_class(side_a, side_b, side_c).area() == expected
 
     @pytest.mark.parametrize(
         "side_a, side_b, side_c",
@@ -68,7 +74,7 @@ class TestTriangle:
     ):
         """Test the triangle_area function with invalid sides."""
         with pytest.raises(ValueError):
-            Triangle(side_a, side_b, side_c)
+            self.shape_class(side_a, side_b, side_c)
 
     @pytest.mark.parametrize(
         "side_a, side_b, side_c, is_right_angle",
@@ -85,7 +91,7 @@ class TestTriangle:
         is_right_angle: bool,
     ):
         """Test if the triangle is a right angle triangle."""
-        triangle = Triangle(side_a, side_b, side_c)
+        triangle = self.shape_class(side_a, side_b, side_c)
         assert triangle.is_right_triangle() == is_right_angle
 
 
