@@ -1,4 +1,5 @@
 from math import pi
+from typing import Union
 
 import pytest
 
@@ -8,14 +9,14 @@ from area_test_assignment import circle_area
 @pytest.mark.parametrize(
     "value, expected",
     [
-        (0, 0),
-        (1, pi),
-        (2, 4 * pi),
-        (3, 9 * pi),
-        (4, 16 * pi),
+        (0, 0),  # testing zero radius
+        (1, pi),  # testing integer radius
+        (2, 4 * pi),  # testing integer radius
+        (3, 9 * pi),  # testing integer radius
+        (pi, pi**3),  # testing float value
     ],
 )
-def test_circle_area(value, expected):
+def test_circle_area(value: Union[int, float], expected: float):
     """Test the circle_area function."""
     assert circle_area(value) == expected
 
