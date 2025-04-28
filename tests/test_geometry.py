@@ -67,8 +67,29 @@ def test_triangle_area_invalid_sides(
         Triangle(side_a, side_b, side_c)
 
 
-def test_shape_behaviour_compatibility(shapes: list[Shape]):
+@pytest.mark.parametrize(
+    "shape, expected",
+    [
+        (Circle(1), pi),  # testing circle
+        (Triangle(3, 4, 5), 6),  # testing triangle
+    ],
+)
+def test_shape_behaviour_compatibility(shape: Shape, expected: float):
     """Test the area of a shape."""
-    for shape in shapes:
-        assert isinstance(shape, Shape)
-        assert shape.area() >= 0
+    assert isinstance(shape, Shape)
+    assert shape.area() == expected
+
+
+@pytest.mark.parametrize(
+    "side_a, side_b, side_c, is_right_angle",
+    [
+        (3, 4, 5, True),  # testing right angle triangle
+        (3, 3, 3, False),  # testing non-right angle triangle
+    ],
+)
+def test_right_angle_triangle(
+    side_a: Number, side_b: Number, side_c: Number, is_right_angle: bool
+):
+    """Test if the triangle is a right angle triangle."""
+    triangle = Triangle(side_a, side_b, side_c)
+    assert triangle.is_right() == is_right_angle
