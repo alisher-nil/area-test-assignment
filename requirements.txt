@@ -1,0 +1,2 @@
+-e git+https://github.com/alisher-nil/area-test-assignment.git@20dfa62e284ef114e5131924dac130f940bde0e5#egg=area_test_assignment
+pytest==8.3.5
