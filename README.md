@@ -12,27 +12,20 @@ A Python library for calculating the area of geometric shapes. This library curr
 
 ## Installation
 
-To use this library, clone the repository:
-
+To use this library, clone the repository and navigate to the project directory:
 ```bash
 git clone https://github.com/alisher-nil/area-test-assignment.git
-```
-### install using pip
-```bash
 cd area-test-assignment
-
+```
+### install dependencies using pip
+```bash
 python3 -m venv .venv
-
 source .venv/bin/activate
-
 pip install --upgrade pip
-
 pip install -r requirements.txt
 ```
 ### or install using uv
 ```bash
-cd area-test-assignment
-
 uv sync
 ```
 
